@@ -151,8 +151,8 @@ type AlertItem = {
 }
 
 const devices = ref<Device[]>([
-  { id: 'DVC-101', name: 'Boiler Sensor', location: 'Ruang Mesin', temperature: 32.2, humidity: 52, battery: 85, online: true },
-  { id: 'DVC-102', name: 'Cold Storage', location: 'Gudang A', temperature: 8.5, humidity: 60, battery: 73, online: true },
+  { id: 'DVC-101', name: 'Boiler Sensor', location: 'Ruang Mesin', temperature: 32.2, humidity: 52, battery: 85, online: false },
+  { id: 'DVC-102', name: 'Cold Storage', location: 'Gudang A', temperature: 8.5, humidity: 60, battery: 73, online: false },
   { id: 'DVC-103', name: 'Water Tank', location: 'Area Belakang', temperature: 27.8, humidity: 70, battery: 64, online: true },
   { id: 'DVC-104', name: 'Air Quality', location: 'Lantai 2', temperature: 30.1, humidity: 57, battery: 41, online: true }
 ])
@@ -257,7 +257,7 @@ const updateSimulation = () => {
 
     return {
       ...device,
-      online,
+      offline: !online,
       temperature,
       humidity,
       battery
